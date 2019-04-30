@@ -113,7 +113,8 @@ class Product(SeoModel, PublishableModel):
     prepayment = MoneyField(
         currency=settings.DEFAULT_CURRENCY,
         max_digits=settings.DEFAULT_MAX_DIGITS,
-        decimal_places=settings.DEFAULT_DECIMAL_PLACES)
+        decimal_places=settings.DEFAULT_DECIMAL_PLACES,
+        blank=True, null=True)
     attributes = HStoreField(default=dict, blank=True)
     updated_at = models.DateTimeField(auto_now=True, null=True)
     charge_taxes = models.BooleanField(default=True)
