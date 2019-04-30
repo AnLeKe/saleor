@@ -111,8 +111,6 @@ class Product(SeoModel, PublishableModel):
         max_digits=settings.DEFAULT_MAX_DIGITS,
         decimal_places=settings.DEFAULT_DECIMAL_PLACES)
     prepayment = MoneyField(
-        verbose_name='定金'，
-        help_text='定金，随时可退！'
         currency=settings.DEFAULT_CURRENCY,
         max_digits=settings.DEFAULT_MAX_DIGITS,
         decimal_places=settings.DEFAULT_DECIMAL_PLACES)
