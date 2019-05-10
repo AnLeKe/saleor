@@ -22,7 +22,7 @@ from .summary import (
     summary_without_shipping)
 from .validators import (
     validate_checkout, validate_is_shipping_required,
-    validate_shipping_address, validate_shipping_method)
+    validate_shipping_address, validate_shipping_method, validate_is_prepayment)
 
 
 @get_or_empty_db_checkout(Checkout.objects.for_display())
@@ -36,6 +36,7 @@ def checkout_login(request, checkout):
 
 
 @get_or_empty_db_checkout(Checkout.objects.for_display())
+@validate_is_prepayment
 @validate_checkout
 @validate_is_shipping_required
 def checkout_start(request, checkout):
@@ -245,3 +246,4 @@ def checkout_dropdown(request, checkout):
             'lines': [prepare_line_data(line) for line in checkout]}
 
     return render(request, 'checkout_dropdown.html', data)
+

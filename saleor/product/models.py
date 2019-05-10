@@ -109,7 +109,9 @@ class Product(SeoModel, PublishableModel):
     price = MoneyField(
         currency=settings.DEFAULT_CURRENCY,
         max_digits=settings.DEFAULT_MAX_DIGITS,
-        decimal_places=settings.DEFAULT_DECIMAL_PLACES)
+        decimal_places=settings.DEFAULT_DECIMAL_PLACES,
+        blank=True, null=True)
+    # 预付款或为定金
     prepayment = MoneyField(
         currency=settings.DEFAULT_CURRENCY,
         max_digits=settings.DEFAULT_MAX_DIGITS,

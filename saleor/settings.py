@@ -56,50 +56,50 @@ DATABASES = {
 
 
 TIME_ZONE = 'America/Chicago'
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'zh-hans'
 LANGUAGES = [
-    ('ar', _('Arabic')),
-    ('az', _('Azerbaijani')),
-    ('bg', _('Bulgarian')),
-    ('bn', _('Bengali')),
-    ('ca', _('Catalan')),
-    ('cs', _('Czech')),
-    ('da', _('Danish')),
-    ('de', _('German')),
+    # ('ar', _('Arabic')),
+    # ('az', _('Azerbaijani')),
+    # ('bg', _('Bulgarian')),
+    # ('bn', _('Bengali')),
+    # ('ca', _('Catalan')),
+    # ('cs', _('Czech')),
+    # ('da', _('Danish')),
+    # ('de', _('German')),
     ('en', _('English')),
-    ('es', _('Spanish')),
-    ('et', _('Estonian')),
-    ('fa', _('Persian')),
-    ('fr', _('French')),
-    ('hi', _('Hindi')),
-    ('hu', _('Hungarian')),
-    ('hy', _('Armenian')),
-    ('id', _('Indonesian')),
-    ('it', _('Italian')),
-    ('ja', _('Japanese')),
-    ('ko', _('Korean')),
-    ('mn', _('Mongolian')),
-    ('nb', _('Norwegian')),
-    ('nl', _('Dutch')),
-    ('pl', _('Polish')),
-    ('pt', _('Portuguese')),
-    ('pt-br', _('Brazilian Portuguese')),
-    ('ro', _('Romanian')),
-    ('ru', _('Russian')),
-    ('sk', _('Slovak')),
-    ('sr', _('Serbian')),
-    ('sw', _('Swahili')),
-    ('sv', _('Swedish')),
-    ('th', _('Thai')),
-    ('tr', _('Turkish')),
-    ('uk', _('Ukrainian')),
-    ('vi', _('Vietnamese')),
+    # ('es', _('Spanish')),
+    # ('et', _('Estonian')),
+    # ('fa', _('Persian')),
+    # ('fr', _('French')),
+    # ('hi', _('Hindi')),
+    # ('hu', _('Hungarian')),
+    # ('hy', _('Armenian')),
+    # ('id', _('Indonesian')),
+    # ('it', _('Italian')),
+    # ('ja', _('Japanese')),
+    # ('ko', _('Korean')),
+    # ('mn', _('Mongolian')),
+    # ('nb', _('Norwegian')),
+    # ('nl', _('Dutch')),
+    # ('pl', _('Polish')),
+    # ('pt', _('Portuguese')),
+    # ('pt-br', _('Brazilian Portuguese')),
+    # ('ro', _('Romanian')),
+    # ('ru', _('Russian')),
+    # ('sk', _('Slovak')),
+    # ('sr', _('Serbian')),
+    # ('sw', _('Swahili')),
+    # ('sv', _('Swedish')),
+    # ('th', _('Thai')),
+    # ('tr', _('Turkish')),
+    # ('uk', _('Ukrainian')),
+    # ('vi', _('Vietnamese')),
     ('zh-hans', _('Simplified Chinese')),
     ('zh-hant', _('Traditional Chinese'))]
 LOCALE_PATHS = [os.path.join(PROJECT_ROOT, 'locale')]
 USE_I18N = True
 USE_L10N = True
-USE_TZ = True
+USE_TZ = False
 
 FORM_RENDERER = 'django.forms.renderers.TemplatesSetting'
 
@@ -251,7 +251,7 @@ INSTALLED_APPS = [
     'captcha']
 
 
-ENABLE_DEBUG_TOOLBAR = get_bool_from_env('ENABLE_DEBUG_TOOLBAR', False)
+ENABLE_DEBUG_TOOLBAR = get_bool_from_env('ENABLE_DEBUG_TOOLBAR', True)
 if ENABLE_DEBUG_TOOLBAR:
     MIDDLEWARE.append(
         'debug_toolbar.middleware.DebugToolbarMiddleware')
@@ -277,7 +277,7 @@ if ENABLE_DEBUG_TOOLBAR:
     DEBUG_TOOLBAR_CONFIG = {
         'RESULTS_CACHE_SIZE': 100}
 
-ENABLE_SILK = get_bool_from_env('ENABLE_SILK', False)
+ENABLE_SILK = get_bool_from_env('ENABLE_SILK', True)
 if ENABLE_SILK:
     MIDDLEWARE.insert(0, 'silk.middleware.SilkyMiddleware')
     INSTALLED_APPS.append('silk')
@@ -325,8 +325,8 @@ AUTH_USER_MODEL = 'account.User'
 
 LOGIN_URL = '/account/login/'
 
-DEFAULT_COUNTRY = os.environ.get('DEFAULT_COUNTRY', 'US')
-DEFAULT_CURRENCY = os.environ.get('DEFAULT_CURRENCY', 'USD')
+DEFAULT_COUNTRY = os.environ.get('DEFAULT_COUNTRY', 'CN')
+DEFAULT_CURRENCY = os.environ.get('DEFAULT_CURRENCY', 'RMB')
 DEFAULT_DECIMAL_PLACES = get_currency_fraction(DEFAULT_CURRENCY)
 DEFAULT_MAX_DIGITS = 12
 AVAILABLE_CURRENCIES = [DEFAULT_CURRENCY]

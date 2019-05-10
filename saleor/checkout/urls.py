@@ -16,6 +16,8 @@ checkout_urlpatterns = [
     url(r'^shipping-method/', views.checkout_shipping_method,
         name='shipping-method'),
     url(r'^summary/', views.checkout_order_summary, name='summary'),
+    url(r'^summary_without_shipping/', views.summary.summary_without_shipping, 
+        name='summary_without_shipping'),
     url(r'^dropdown/$', views.checkout_dropdown, name='dropdown'),
     url(r'^remove_voucher/', remove_voucher_view, name='remove-voucher'),
     url(r'^login/', views.checkout_login, name='login')]

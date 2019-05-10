@@ -69,3 +69,13 @@ def validate_is_shipping_required(view):
             return redirect('checkout:summary')
         return view(request, checkout)
     return func
+
+
+def validate_is_prepayment(view):
+
+    @wraps(view)
+    def func(request, checkout):
+        if checkout.variant.product.prepayment:
+            return redirect('checkout:summary_without_shipping')
+        return view(request, checkout)
+    return func
